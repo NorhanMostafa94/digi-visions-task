@@ -1,0 +1,17 @@
+@import "abstracts/variables";
+
+.home-card-container {
+    height: 150px;
+    border: 1px solid $border-color;
+    transition: all 0.3s;
+    cursor: pointer;
+    &__text {
+        color: $text-color;
+        font-size: 1.6rem;
+    }
+    &:hover {
+        .home-card-container__text {
+            color: $primary;
+        }
+    }
+}

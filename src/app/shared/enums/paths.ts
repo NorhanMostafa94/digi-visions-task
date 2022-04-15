@@ -1,3 +1,4 @@
-export enum IPaths {
+export enum EPaths {
+    HOME = '',
     PRODUCT = 'product'
 }
