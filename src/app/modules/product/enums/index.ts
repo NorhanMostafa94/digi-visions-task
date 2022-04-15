@@ -1,0 +1,1 @@
+export { IProductPaths } from './product-paths';

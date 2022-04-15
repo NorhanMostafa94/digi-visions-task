@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { IPaths } from './shared/enums';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: IPaths.PRODUCT,
+    loadChildren: () => import('./modules/product/product.module').then(m => m.ProductModule)
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
