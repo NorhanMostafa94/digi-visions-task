@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IProduct, IProductRequest } from '../../models';
+import { ProductsService } from '../../services/products.service';
 
 @Component({
   selector: 'app-product-list',
@@ -7,9 +9,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
 
-  constructor() { }
+  products: IProduct[] = [];
+  productPayload: IProductRequest = {
+    pageSize: 10
+  };
+
+  displayedColumns: string[] = ['id', 'title', 'category','actions'];
+  dataSource: any;
+
+  // @ViewChild(MatPaginator, { static: false }) paginator: any;
+
+  // ngAfterViewInit() {
+  //   this.dataSource.paginator = this.paginator;
+  // }
+
+  constructor(private productsService: ProductsService) { }
 
   ngOnInit(): void {
+    this.getProducts();
+  }
+
+  /**
+   * `getProducts()`
+   * @description to get all products list
+   */
+  getProducts() {
+    this.productsService.getProducts(this.productPayload).subscribe({
+      next: (res) => {
+        this.products = res;
+        this.dataSource = this.products;
+      },
+      error: () => { }
+    })
   }
 
 }
+function MatPaginator(MatPaginator: any) {
+  throw new Error('Function not implemented.');
+}
+

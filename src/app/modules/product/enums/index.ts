@@ -1,1 +1,1 @@
-export { IProductPaths } from './product-paths';
+export { EProductPaths } from './product-paths';
