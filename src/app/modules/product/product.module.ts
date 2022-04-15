@@ -2,20 +2,39 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ProductRoutingModule } from './product-routing.module';
-import { ProductListComponent } from './pages/product-list/product-list.component';
-import { AddEditProductComponent } from './pages/add-edit-product/add-edit-product.component';
-import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+
+import {
+  ProductListComponent,
+  AddEditProductComponent,
+  ProductDetailsComponent
+} from './pages';
+
+const BASEMODULES = [
+  CommonModule,
+  ProductRoutingModule,
+];
+
+const MODULES = [
+  MatPaginatorModule,
+  MatTableModule
+];
+
+const COMPONENTS = [
+  ProductListComponent,
+  AddEditProductComponent,
+  ProductDetailsComponent
+];
 
 @NgModule({
   declarations: [
-    ProductListComponent,
-    AddEditProductComponent,
-    ProductDetailsComponent
+    ...COMPONENTS
   ],
   imports: [
-    CommonModule,
-    ProductRoutingModule
+    ...BASEMODULES,
+    ...MODULES
   ]
 })
 export class ProductModule { }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { IProductPaths } from './enums';
+import { EProductPaths } from './enums';
 import {
   AddEditProductComponent,
   ProductDetailsComponent,
@@ -18,19 +18,19 @@ const routes: Routes = [
     path: '',
     children: [
       {
-        path: IProductPaths.LIST,
+        path: EProductPaths.LIST,
         component: ProductListComponent
       },
       {
-        path: IProductPaths.DETAILS,
+        path: EProductPaths.DETAILS,
         component: ProductDetailsComponent
       },
       {
-        path: IProductPaths.ADD,
+        path: EProductPaths.ADD,
         component: AddEditProductComponent
       },
       {
-        path: IProductPaths.EDIT,
+        path: EProductPaths.EDIT,
         component: AddEditProductComponent
       }
     ]
