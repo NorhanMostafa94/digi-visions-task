@@ -17,11 +17,6 @@ export class ProductListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'title', 'category','actions'];
   dataSource: any;
 
-  // @ViewChild(MatPaginator, { static: false }) paginator: any;
-
-  // ngAfterViewInit() {
-  //   this.dataSource.paginator = this.paginator;
-  // }
 
   constructor(private productsService: ProductsService) { }
 
@@ -43,8 +38,5 @@ export class ProductListComponent implements OnInit {
     })
   }
 
-}
-function MatPaginator(MatPaginator: any) {
-  throw new Error('Function not implemented.');
 }
 
