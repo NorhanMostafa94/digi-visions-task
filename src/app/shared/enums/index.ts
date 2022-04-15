@@ -1,1 +1,1 @@
-export { IPaths } from './paths';
+export { EPaths } from './paths';

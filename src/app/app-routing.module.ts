@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { IPaths } from './shared/enums';
+import { EPaths } from './shared/enums';
 
 const routes: Routes = [
   {
-    path: IPaths.PRODUCT,
+    path: EPaths.HOME,
+    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
+  },
+  {
+    path: EPaths.PRODUCT,
     loadChildren: () => import('./modules/product/product.module').then(m => m.ProductModule)
   }
 ];
