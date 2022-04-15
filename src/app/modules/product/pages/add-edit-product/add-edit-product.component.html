@@ -1,1 +1,20 @@
-<p>add-edit-product works!</p>
+<div class="add-edit-product container h-100">
+    <div class="add-edit-product__title mt-5">
+        <h1>Add a new product</h1>
+    </div>
+    <div class="row form-container align-items-center justify-content-center mt-5">
+        <div class="col-sm-8">
+            <form [formGroup]="form">
+                <div class="form-container__control">
+                    <label class="form-label">Title</label>
+                    <input type="text" formControlName="title" class="form-control">
+                </div>
+                <div class="form-container__control mt-4">
+                    <label class="form-label">Description</label>
+                    <textarea formControlName="description" class="form-control" rows="10"></textarea>
+                </div>
+                <button class="btn btn-primary btn-lg mt-4" (click)="addProduct()">Add</button>
+            </form>
+        </div>
+    </div>
+</div>

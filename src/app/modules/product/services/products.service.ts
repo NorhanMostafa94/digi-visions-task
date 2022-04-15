@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { take } from 'rxjs';
 import { HttpService } from 'src/app/core/services/http.service';
 import { EApiUrl } from 'src/app/shared/enums';
-import { IProductRequest } from '../models';
+import { IProduct, IProductRequest } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +19,10 @@ export class ProductsService {
   getById(id: string) {
     const url = EApiUrl.PRODUCT.LIST;
     return this.http.get(`${url}/${id}`).pipe(take(1));
+  }
+
+  add(product: IProduct) {
+    const url = EApiUrl.PRODUCT.LIST;
+    return this.http.post(url,product).pipe(take(1));
   }
 }

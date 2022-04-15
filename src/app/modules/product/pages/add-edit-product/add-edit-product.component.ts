@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ProductsService } from '../../services/products.service';
 
 @Component({
   selector: 'app-add-edit-product',
@@ -7,9 +9,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddEditProductComponent implements OnInit {
 
-  constructor() { }
+  form!: FormGroup;
+
+  constructor(private productsService: ProductsService) { }
 
   ngOnInit(): void {
+    this.initiateForm();
+  }
+
+  /**
+   * `addProduct()` 
+   * @description add product
+   */
+  initiateForm() {
+    this.form = new FormGroup({
+      title: new FormControl('', Validators.required),
+      description: new FormControl('', Validators.required)
+    });
+  }
+
+  /**
+   * `initiateForm()` 
+   * @description initiate form
+   */
+  addProduct(){
+    const formValues = this.form.value;
+    this.productsService.add(formValues).subscribe({
+      next: (res)=>{
+        console.log(res);
+      },
+      error: (err)=>{}
+    })
   }
 
 }
