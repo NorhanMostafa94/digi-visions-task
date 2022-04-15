@@ -15,4 +15,9 @@ export class ProductsService {
     const url = EApiUrl.PRODUCT.LIST;
     return this.http.get(`${url}?limit=${payload.pageSize}`).pipe(take(1));
   }
+
+  getById(id: string) {
+    const url = EApiUrl.PRODUCT.LIST;
+    return this.http.get(`${url}/${id}`).pipe(take(1));
+  }
 }

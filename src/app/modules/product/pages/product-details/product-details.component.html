@@ -1,1 +1,11 @@
-<p>product-details works!</p>
+<div class="product-details container mt-5">
+    <div class="product-details__back">
+        back to list
+    </div>
+    <h2 class="product-details__title">{{product?.title}}</h2>
+    <h3 class="product-details__category mt-3" *ngIf="product?.category">
+        <span class="font-weight-bold"> category: </span>
+        {{product?.category}}
+    </h3>
+    <p class="product-details__description mt-3">{{product?.description}}</p>
+</div>
