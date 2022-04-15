@@ -11,9 +11,12 @@ import {
   AddEditProductComponent,
   ProductDetailsComponent
 } from './pages';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const BASEMODULES = [
   CommonModule,
+  FormsModule,
+  ReactiveFormsModule,
   ProductRoutingModule,
 ];
 
