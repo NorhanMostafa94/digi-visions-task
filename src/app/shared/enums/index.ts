@@ -1,0 +1,1 @@
+export { IPaths } from './paths';
